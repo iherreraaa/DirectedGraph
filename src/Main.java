@@ -12,7 +12,8 @@ public class Main {
         String layOver = getLayOverCity( keys, startCity, g);
         Vertex v = g.getThisVertex( startCity, layOver);
         try{
-            System.out.println("The connections from Start: " + startCity + " with layover N: " + v.label + " are " + v.weight);
+            System.out.println(
+                    "The connections from Start: " + startCity + " with layover N: " + v.label + " are " + v.weight);
             showConnections( g, v );
         }catch (Exception e ){
             System.out.println("This city has no further connections or this is the start city");
@@ -61,7 +62,10 @@ public class Main {
             if (key.equalsIgnoreCase(layOverVertex.label)){
                 ArrayList<Vertex> connections = g.getConnections(key);
                 for (Vertex connection : connections){
-                    System.out.println("Name: " + connection.label + " Distance: " + connection.weight + " Total distance: " + (connection.weight + layOverVertex.weight));
+                    System.out.println(
+                                "Name: " + connection.label +
+                                " Distance: " + connection.weight +
+                                " Total distance: " + (connection.weight + layOverVertex.weight));
                 }
             }
         }
