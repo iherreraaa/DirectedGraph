@@ -43,7 +43,7 @@ public class Main {
             );
         }
 
-        StringBuilder oStr = new StringBuilder("");
+        StringBuilder oStr = new StringBuilder();
         String cm = "";
 
         for (String key : keys){
