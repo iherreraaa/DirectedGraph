@@ -73,6 +73,8 @@ public class Main {
 
     private static HMGraph createGraph() {
 
+        // hello world
+
         HMGraph g = new HMGraph();
 
         g.addVertex("Chicago");
