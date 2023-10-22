@@ -5,17 +5,17 @@ import java.util.Set;
 public class Main {
     public static void main(String[] args) {
         HMGraph g = createGraph();
-        printGraph( g );
+        printGraph(g);
         Set<String> keys = g.getKeys();
         String startCity = "Chicago";
         System.out.println();
-        String layOver = getLayOverCity( keys, startCity, g);
-        Vertex v = g.getThisVertex( startCity, layOver);
-        try{
+        String layOver = getLayOverCity(keys, startCity, g);
+        Vertex v = g.getThisVertex(startCity, layOver);
+        try {
             System.out.println(
                     "The connections from Start: " + startCity + " with layover N: " + v.label + " are " + v.weight);
-            showConnections( g, v );
-        }catch (Exception e ){
+            showConnections(g, v);
+        } catch (Exception e) {
             System.out.println("This city has no further connections or this is the start city");
         }
 
@@ -23,10 +23,10 @@ public class Main {
 
     private static void printGraph(HMGraph g) {
 
-        for (string v : g.getKeys()){
+        for (String v : g.getKeys()) {
             ArrayList<Vertex> connections = g.getConnections(v);
             System.out.println("From " + v);
-            for (Vertex conn : connections){
+            for (Vertex conn : connections) {
                 System.out.println("City: " + conn.label + " Distance: " + conn.weight);
             }
         }
@@ -35,10 +35,10 @@ public class Main {
     private static String getLayOverCity(Set<String> keys, String startCity, HMGraph g) {
         Scanner scan = new Scanner(System.in);
 
-        for (String key : keys){
+        for (String key : keys) {
             System.out.println("Showing connection for key: " + key);
             ArrayList<Vertex> connections = g.getConnections(key);
-            connections.forEach((connection)->
+            connections.forEach((connection) ->
                     System.out.println("City:" + connection.label + " Dest: " + connection.weight)
             );
         }
@@ -46,8 +46,8 @@ public class Main {
         StringBuilder oStr = new StringBuilder();
         String cm = "";
 
-        for (String key : keys){
-            if (key.equals(startCity)){
+        for (String key : keys) {
+            if (key.equals(startCity)) {
                 continue;
             }
             oStr.append(cm).append(key);
@@ -58,14 +58,14 @@ public class Main {
     }
 
     private static void showConnections(HMGraph g, Vertex layOverVertex) {
-        for (String key : g.getKeys()){
-            if (key.equalsIgnoreCase(layOverVertex.label)){
+        for (String key : g.getKeys()) {
+            if (key.equalsIgnoreCase(layOverVertex.label)) {
                 ArrayList<Vertex> connections = g.getConnections(key);
-                for (Vertex connection : connections){
+                for (Vertex connection : connections) {
                     System.out.println(
-                                "Name: " + connection.label +
-                                " Distance: " + connection.weight +
-                                " Total distance: " + (connection.weight + layOverVertex.weight));
+                            "Name: " + connection.label +
+                                    " Distance: " + connection.weight +
+                                    " Total distance: " + (connection.weight + layOverVertex.weight));
                 }
             }
         }
