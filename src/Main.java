@@ -23,7 +23,7 @@ public class Main {
 
     private static void printGraph(HMGraph g) {
 
-        for (String v : g.getKeys()){
+        for (string v : g.getKeys()){
             ArrayList<Vertex> connections = g.getConnections(v);
             System.out.println("From " + v);
             for (Vertex conn : connections){
