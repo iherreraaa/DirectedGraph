@@ -73,6 +73,7 @@ public class Main {
 
     private static HMGraph createGraph() {
 
+        // maybe this works?
         HMGraph g = new HMGraph();
 
         g.addVertex("Chicago");
